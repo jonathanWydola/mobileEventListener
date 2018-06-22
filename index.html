@@ -16,7 +16,7 @@
     <div class="randomClass3">focusOut Fired:</div>
     <div class="unloadEvent">unloaded: </div>
     <div class="pageHidden">page Hidden: </div>
-
+<!-- Pretty sure this doesnt work
 <script>
     //https://stackoverflow.com/questions/16471062/jquery-unload-issue-in-safari
     var pageHiddenFind = document.getElementsByClassName("pageHidden");
@@ -46,6 +46,7 @@
     window.addEventListener("pagehide", pageHidden, false);
             
 </script>
+-->
     
 <script>
     // Not gonna want this
@@ -67,6 +68,7 @@
         countRet++;
         aNode2.textContent = ("focus Out Page: " + countRet +"x"); 
     } );   
+    window.addEventListener('onunload
 </script>
 
 <script>
