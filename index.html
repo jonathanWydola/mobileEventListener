@@ -36,7 +36,7 @@
     //First occrance only occurance
     var aNode = divElem[0];
     var aNode2 = divElem2[0]; 
-    window.addEventListener( 'onblur', function() { 
+    window.addEventListener( 'blur', function() { 
         countLeave++;
         aNode.textContent = ("Leave Page: " + countLeave +"x"); } );
     window.addEventListener( 'focus', function() { 
