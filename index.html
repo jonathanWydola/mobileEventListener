@@ -12,14 +12,29 @@
 <body>
     <p>some tag paragraph content</p>
     <div class="randomClass">focusOut Fired:</div>
+    <div class="randomClass2">focusIn fired: </div>
 
 
-
+<!--idk this might be my best bet to prove my point
 <script>
-    window.addEventListener( 'blur', function() { console.log( 'blur' ); } );
-    window.addEventListener( 'focus', function() { console.log( 'focus' ); } );
+    // Not gonna want this
+    //var videoElement = document.getElementById("videoElement");
+    var divElem = document.getElementsByClassName("randomClass");
+    var divElem2 = document.getElementsByClassName("randomClass2");
+    var countLeave = 0;
+    var countRet = 0;
+    //First occrance only occurance
+    var aNode = divElem[0];
+    var aNode2 = divElem2[0]; 
+    window.addEventListener( 'blur', function() { 
+        countLeave++;
+        aNode.textContent = ("Leave Page: " + countLeave +"x"); } );
+    window.addEventListener( 'focus', function() { 
+        countRet++;
+        aNode2.textContent = ("Ret Page: " + countRet +"x"); } );
+        console.log( 'focus' ); } );
 </script>
-    
+-->
 <script>
 // Set the name of the hidden property and the change event for visibility
 var hidden, visibilityChange; 
@@ -39,16 +54,16 @@ if (typeof document.hidden !== "undefined") { // Opera 12.10 and Firefox 18 and 
 var divElem = document.getElementsByClassName("randomClass");
 var countLeave = 0;
 //First occrance only occurance
-var aNode = divElem[0]
+var aNode = divElem[0];
 // If the page is hidden, pause the video;
 // if the page is shown, play the video
 //nor this
 function handleVisibilityChange() {
   if (document[hidden]) {
     countLeave++;
-    aNode.text("Leave Page: " + countLeave +"x");
+    aNode.textContent = ("Leave Page: " + countLeave +"x");
   } else {
-    aNode.text("Leave Page: " + countLeave +"x");
+    aNode.textContent = ("Leave Page: " + countLeave +"x");
   }
 }
 
@@ -57,7 +72,7 @@ if (typeof document.addEventListener === "undefined" || hidden === undefined) {
   console.log("This demo requires a browser, such as Google Chrome or Firefox, that supports the Page Visibility API.");
 } else {
   // Handle page visibility change   
-  document.addEventListener(visibilityChange, handleVisibilityChange, false);
+  document.addEventListener(visibilityChange, handleVisibilityChange);
     
   // When the video pauses, set the title.
   // This shows the paused
