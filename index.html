@@ -13,9 +13,10 @@
     <p>some tag paragraph content</p>
     <div class="randomClass">focusOut Fired:</div>
     <div class="randomClass2">focusIn fired: </div>
+    <div class="randomClass3">focusOut Fired:</div>
 
 
-<!--idk this might be my best bet to prove my point
+
 <script>
     // Not gonna want this
     //var videoElement = document.getElementById("videoElement");
@@ -34,7 +35,7 @@
         aNode2.textContent = ("Ret Page: " + countRet +"x"); } );
         console.log( 'focus' ); } );
 </script>
--->
+
 <script>
 // Set the name of the hidden property and the change event for visibility
 var hidden, visibilityChange; 
@@ -51,7 +52,7 @@ if (typeof document.hidden !== "undefined") { // Opera 12.10 and Firefox 18 and 
 
 // Not gonna want this
 //var videoElement = document.getElementById("videoElement");
-var divElem = document.getElementsByClassName("randomClass");
+var divElem = document.getElementsByClassName("randomClass3");
 var countLeave = 0;
 //First occrance only occurance
 var aNode = divElem[0];
