@@ -60,11 +60,11 @@
     //First occrance only occurance
     var aNode = divElem[0];
     var aNode2 = divElem2[0]; 
-    window.addEventListener( 'blur', function() { 
+    document.addEventListener( 'blur', function() { 
         countLeave++;
         aNode.textContent = ("Leave Page: " + countLeave +"x"); 
     } );
-    window.addEventListener( 'focusout', function() { 
+    document.addEventListener( 'focusout', function() { 
         countRet++;
         aNode2.textContent = ("focus Out Page: " + countRet +"x"); 
     } );   
