@@ -52,19 +52,19 @@ if (typeof document.hidden !== "undefined") { // Opera 12.10 and Firefox 18 and 
 
 // Not gonna want this
 //var videoElement = document.getElementById("videoElement");
-var divElem = document.getElementsByClassName("randomClass3");
-var countLeave = 0;
+var divElem3 = document.getElementsByClassName("randomClass3");
+var countLeave3 = 0;
 //First occrance only occurance
-var aNode = divElem[0];
+var aNode3 = divElem3[0];
 // If the page is hidden, pause the video;
 // if the page is shown, play the video
 //nor this
 function handleVisibilityChange() {
   if (document[hidden]) {
-    countLeave++;
-    aNode.textContent = ("Leave Page: " + countLeave +"x");
+    countLeave3++;
+    aNode3.textContent = ("Leave Page: " + countLeave +"x");
   } else {
-    aNode.textContent = ("Leave Page: " + countLeave +"x");
+    aNode3.textContent = ("Leave Page: " + countLeave +"x");
   }
 }
 
