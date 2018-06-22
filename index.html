@@ -15,17 +15,7 @@
     <div class="randomClass2">focusIn fired: </div>
     <div class="randomClass3">focusOut Fired:</div>
     <div class="unloadEvent">unloaded: </div>
-<!--
-<script>
-    var unloadCount = 0;
-    var unElement = document.getElementsByClassName("unloadEvent");
-    var uNode = unElement[0];
-    window.unload(function(){
-         unloadCount++;
-        uNode.textContent = ("Unloaded: " + unloadCount +"x");
-    }); 
-</script>
--->
+    
 <script>
     // Not gonna want this
     //var videoElement = document.getElementById("videoElement");
@@ -39,9 +29,9 @@
     window.addEventListener( 'blur', function() { 
         countLeave++;
         aNode.textContent = ("Leave Page: " + countLeave +"x"); } );
-    window.addEventListener( 'focus', function() { 
+    window.addEventListener( 'focusout', function() { 
         countRet++;
-        aNode2.textContent = ("Ret Page: " + countRet +"x"); } );
+        aNode2.textContent = ("focus Out Page: " + countRet +"x"); } );
         //console.log( 'focus' ); } );
 </script>
 
