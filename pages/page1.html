@@ -1,1 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>event listener</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    
+</head>
+  <body>
+    <div class="some1">"something: </div>
+    
+    
+    
+    <script>
+      $(document).ready(function() {
+        function myLoadHandler(evt)
+        var laodCount = 0;
+        {
+          if (evt.persisted) {
+              // This is actually a pageshow event and the page is coming out of the Page Cache.
+              // Make sure to not perform the "one-time work" that we'd normally do in the onload handler.
+            console.log("pageShow Event");
+              return;
+          }
+          console.log("Load or Page Show Event");
+          // This is either a load event for older browsers, 
+          // or a pageshow event for the initial load in supported browsers.
+          // It's safe to do everything my old load event handler did here.
+      }
 
+      function myUnloadHandler(evt)
+      {
+        var unCount = 0;
+          if (evt.persisted) {
+              // This is actually a pagehide event and the page is going into the Page Cache.
+              // Make sure that we don't do any destructive work, or work that shouldn't be duplicated.
+            console.log("page Hide event");
+
+              return;
+          }
+
+          // This is either an unload event for older browsers, 
+          // or a pagehide event for page tear-down in supported browsers.
+          // It's safe to do everything my old unload event handler did here.
+        console.log("page Hide or unload event");
+      }
+
+      if ("onpagehide" in window) {
+          window.addEventListener("pageshow", myLoadHandler, false);
+          window.addEventListener("pagehide", myUnloadHandler, false);
+      } else {
+          window.addEventListener("load", myLoadHandler, false);
+          window.addEventListener("unload", myUnloadHandler, false);
+      }
+        });
+    </script>
+    
+  </body>
+</html>
