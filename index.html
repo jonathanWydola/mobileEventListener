@@ -15,25 +15,32 @@
     <div class="randomClass2">focusIn fired: </div>
     <div class="randomClass3">focusOut Fired:</div>
     <div class="unloadEvent">unloaded: </div>
+    <div class="pageHidden">page Hidden: </div>
 
 <script>
     //https://stackoverflow.com/questions/16471062/jquery-unload-issue-in-safari
-    
+    var pageHiddenFind = document.getElementsByClassName("pageHidden");
+    var pageNode = pageHiddenFind[0];
     function pageHidden(evt)
     {
+        var countercounter = 0;
         var txt = "success";
         if(evt.persisted){
+            countercounter++;
             console.log("page hide handler called. Page has been suspeneded.");
         // Hopefully this emits the post request im looking for.
             $.post("demo_ajax_gethint.asp", {suggest: txt}, function(result){
                 $("span").html(result);
             });
+            pageNode.textContent = ("page Hidden : " + countercounter + "x");
         }
         else {
+            countercounter++;            
             console.log("page hide event handled for page destruction. same as unloade event");
             $.post("demo_ajax_gethint.asp", {suggest: txt}, function(result){
                 $("span").html(result);
             }); 
+            pageNode.textContent = ("page Hidden : " + countercounter + "x");
         }
     }
     window.addEventListener("pagehide", pageHidden, false);
