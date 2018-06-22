@@ -22,17 +22,19 @@
     function pageHidden(evt)
     {
         var txt = "success";
-        if(evt.persisted)
+        if(evt.persisted){
             console.log("page hide handler called. Page has been suspeneded.");
         // Hopefully this emits the post request im looking for.
             $.post("demo_ajax_gethint.asp", {suggest: txt}, function(result){
                 $("span").html(result);
             });
-        else
+        }
+        else {
             console.log("page hide event handled for page destruction. same as unloade event");
             $.post("demo_ajax_gethint.asp", {suggest: txt}, function(result){
                 $("span").html(result);
-            });        
+            }); 
+        }
     }
     window.addEventListener("pagehide", pageHidden, false);
             
@@ -49,17 +51,17 @@
     var aNode = divElem[0];
     var aNode2 = divElem2[0]; 
     window.addEventListener( 'blur', function() { 
-        var txt = "blur";
+        var txt1 = "blur";
         countLeave++;
         aNode.textContent = ("Leave Page: " + countLeave +"x"); } );
-        $.post("demo_ajax_gethint.asp", {suggest: txt}, function(result){
+        $.post("demo_ajax_gethint.asp", {suggest: txt1}, function(result){
             $("span").html(result);
         });
     window.addEventListener( 'focusout', function() { 
-        var txt = "focusOut";
+        var txt2 = "focusOut";
         countRet++;
         aNode2.textContent = ("focus Out Page: " + countRet +"x"); } );
-        $.post("demo_ajax_gethint.asp", {suggest: txt}, function(result){
+        $.post("demo_ajax_gethint.asp", {suggest: txt2}, function(result){
             $("span").html(result);
         });    
 </script>
